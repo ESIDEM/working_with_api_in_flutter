@@ -18,7 +18,7 @@ Future<Post> getPost() async{
   return postFromJson(response.body);
 }
 
-Future<http.Response> createPost(Post post) async{
+Future<Post> createPost(Post post) async{
   final response = await http.post('$url',
       headers: {
         HttpHeaders.contentTypeHeader: 'application/json',
@@ -26,5 +26,5 @@ Future<http.Response> createPost(Post post) async{
       },
       body: postToJson(post)
   );
-  return response;
+  return postFromJson(response.body);
 }
